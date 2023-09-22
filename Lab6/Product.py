@@ -4,6 +4,9 @@ class Product:
         self.stock = stock
         self.price = price
 
+    def get_name(self):
+        return self.name
+
     def is_empty(self):
         return self.stock == 0
 
@@ -11,15 +14,12 @@ class Product:
         return self.stock >= n
 
     def sell(self, n):
-        if self.has(n):
-            self.stock -= n
-            return n * self.price
-        else:
-            return 0.0
+        self.stock -= n
+        return self.price * n
 
     def restock(self, n):
         self.stock += n
 
     def __str__(self):
-        return f"{self.name} - {self.stock} at ${self.price:,.2f}"
+        return "{} - {} at ${:,.2f}".format(self.name, self.stock, self.price)
 
