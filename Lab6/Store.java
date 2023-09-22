@@ -5,38 +5,50 @@ public class Store {
     private LinkedList<Product> products = new LinkedList<Product>();
 
     public Store() {
-        // Insert 6 lines of code to initialise the fields.
+        cashRegister = new CashRegister();
+        products.add(new Product("Whiteboard Marker", 85, 1.50));
+        products.add(new Product("Whiteboard Eraser", 45, 5.00));
+        products.add(new Product("Black Pen", 100, 1.50));
+        products.add(new Product("Red Pen", 100, 1.50));
+        products.add(new Product("Blue Pen", 100, 1.50));
     }
 
     private char readChoice() {
-        return 'x';
+        return In.nextChar();
     }
 
     private void sell() {
+        // Implementation of sell method
     }
 
     private void restock() {
+        // Implementation of restock method
     }
 
     private void viewStock() {
+        for (Product product : products) {
+            System.out.println(product);
+        }
     }
 
     private void viewCash() {
+        System.out.println(cashRegister);
     }
 
     private void pruneProducts() {
+        products.removeIf(Product::isEmpty);
     }
 
     private String readName() {
-        return "No Name";
+        return In.nextLine();
     }
 
     private double readPrice() {
-        return 0.0;
+        return In.nextDouble();
     }
 
     private int readNumber() {
-        return 0;
+        return In.nextInt();
     }
 
     private void help() {
@@ -47,5 +59,9 @@ public class Store {
         System.out.println("c = view cash");
         System.out.println("p = prune products");
         System.out.println("x = exit");
+    }
+
+    public static void main(String[] args) {
+        // Main implementation
     }
 }
