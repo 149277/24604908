@@ -18,3 +18,4 @@ public class CashRegister {
         return new DecimalFormat("###,##0.00").format(amount);
     }
 }
+
